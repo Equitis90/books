@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0'
 # Use devise for authentication
 gem 'devise'
+# Use paperclip for image manipulation
+gem 'paperclip', '~> 5.2.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -44,6 +46,12 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
+group :test do
+  #Using rspec for testing
+  gem 'rspec-rails', '~> 3.6'
+  #Using Factory bot for generating fixtures
+  gem 'factory_bot_rails'
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
