@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :books, except: [:destroy]
+
   devise_for :users
-  get 'books/index'
 
   root to: 'books#index'
 end
