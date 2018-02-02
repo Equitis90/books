@@ -1,2 +1,16 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="form-container">
+  <h1><%= @book.title %></h1>
+  <div class="left">
+    <%= image_tag @book.cover, size: '300x500' %>
+  </div>
+  <label>Author:</label>
+  <div><%= @book.author %></div>
+  <label>Genres:</label>
+  <ul>
+    <% @book.genres.each do |genre| %>
+      <li><%= genre.title %></li>
+    <% end %>
+  </ul>
+  <label>Short description:</label>
+  <%= text_area_tag 'description', @book.description, { size: '23x22', disabled: 'disabled' } %>
+</div>

@@ -20,9 +20,11 @@
     <div class="form-group">
       <%= book.label 'Genres:' %>
       <%= book.collection_select :genres, Genre.order(:title), :id, :title,
-               {}, {:multiple => true, class: 'form-control', :required => true} %>
+               {include_blank: false, include_hidden: false},
+               {:multiple => true, class: 'form-control', :required => true} %>
     </div>
-    <%= book.submit 'Create', draft: false, class: 'btn btn-success' %>
-    <%= book.submit 'To drafts', draft: true, class: 'btn btn-primary' %>
+    <%= book.hidden_field :user_id, value: current_user.id %>
+    <%= book.submit 'Create', name: 'book[draft]', draft: false, class: 'btn btn-success' %>
+    <%= book.submit 'To drafts', name: 'book[draft]', draft: true, class: 'btn btn-primary' %>
   <% end %>
 </div>

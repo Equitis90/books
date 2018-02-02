@@ -2,3 +2,14 @@
   width: 40%;
   margin: auto;
 }
+
+.left {
+  float: left;
+  margin-right: 5px;
+  clear: both;
+  display: table;
+}
+
+#description {
+  resize: none;
+}
