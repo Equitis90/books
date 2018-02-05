@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
   def create
     Book.create_with_genres(book_params)
-    redirect_to root_path
+    redirect_to root_path, flash: { notice: 'New book review created!' }
   end
 
   def show

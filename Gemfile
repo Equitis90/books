@@ -48,11 +48,13 @@ group :development, :test do
 end
 
 group :test do
-  #Using rspec for testing
+  # Using rspec for testing
   gem 'rspec-rails', '~> 3.6'
-  #Using Factory bot for generating fixtures
+  # Using Factory bot for generating fixtures
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  # Using capybara for feature tests
+  gem 'capybara'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
