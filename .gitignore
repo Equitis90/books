@@ -17,3 +17,5 @@
 .byebug_history
 # Ignore .idea files
 /.idea
+#Ignore paperclip loaded images
+/public/system/*

@@ -1,2 +1,4 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="form-container">
+  <h1>Edit book review draft</h1>
+  <%= render partial: 'book_creation_form', locals: { book: @book, url: book_path } %>
+</div>
