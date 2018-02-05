@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple book reviewer demo app
+It can be found here: https://eqbookreviewer.herokuapp.com/
 
-Things you may want to cover:
+Unauthorized user can view book reviews created for a last week.
+Authorized user can create reviews, drafts and edit drafts.
 
-* Ruby version
+Book review consist of title, author name, cover picture, short description and genres(can be selected multiple genres).
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
