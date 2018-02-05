@@ -7,6 +7,7 @@ FactoryBot.define do
     book.sequence(:title) { Faker::Book.title }
     book.sequence(:author) { Faker::Book.author }
     book.sequence(:description) { Faker::Lorem.paragraph }
+    draft false
     cover { File.new("#{Rails.root}/spec/image.png") }
   end
 
