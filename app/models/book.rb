@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   has_attached_file :cover, styles: { medium: '300x500>', thumb: '100x200>' },
                     default_url: '/images/:style/missing.png'
   validates_attachment_content_type :cover, content_type: %r{\Aimage\/.*\z}
+  validates :cover, attachment_presence: true
   validates_presence_of :genres, :title, :author, :description, :user
   validates_inclusion_of :draft, in: [true, false]
 
