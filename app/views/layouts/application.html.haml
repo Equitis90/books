@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Books
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{:href => root_url}
+            Book Reviewer
+        %ul.nav.navbar-nav
+          - if user_signed_in?
+            %li
+              = link_to 'Create new book review', new_book_path
+            %li
+              = link_to 'My drafts', drafts_books_path
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li
+              = link_to('Logout', destroy_user_session_path, method: :delete)
+          - else
+            %li
+              = link_to('Login', new_user_session_path)
+            %li
+              = link_to('Sign up', new_user_registration_path)
+    = flash_messages
+    = yield

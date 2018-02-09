@@ -1,0 +1,14 @@
+%table.table
+  %thead
+    %tr
+      %th Title
+      %th Author
+      %th User added
+      %th Added at
+  %tbody
+    - books.each do |book|
+      %tr
+        %td= link_to book.title, action_name == 'index' ? book_path(book) : edit_book_path(book)
+        %td= book.author
+        %td= book.user.email
+        %td= book.created_at.strftime('%d/%m/%Y')

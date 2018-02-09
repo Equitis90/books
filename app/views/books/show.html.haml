@@ -1,0 +1,12 @@
+.form-container
+  %h1= @book.title
+  .left
+    = image_tag @book.cover, size: '300x500'
+  %label Author:
+  %div= @book.author
+  %label Genres:
+  %ul
+    - @book.genres.each do |genre|
+      %li= genre.title
+  %label Short description:
+  %div= @book.description
