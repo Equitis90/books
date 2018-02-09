@@ -4,7 +4,6 @@ class Book < ApplicationRecord
   has_many :book_genres, dependent: :destroy
   has_many :genres, through: :book_genres
 
-  scope :by_id, ->(id) { find(id) }
   has_attached_file :cover, styles: { medium: '300x500>', thumb: '100x200>' },
                     default_url: '/images/:style/missing.png'
   validates_attachment_content_type :cover, content_type: %r{\Aimage\/.*\z}

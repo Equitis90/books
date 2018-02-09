@@ -17,14 +17,18 @@ class BooksController < ApplicationController
     redirect_to root_path, flash: { notice: 'New book review created!' }
   end
 
-  def show; end
+  def show
+    authorize! :show, @book
+  end
 
   def drafts
     @books = Book.where('user_id = ? and draft = true', current_user.id)
                  .order(:updated_at)
   end
 
-  def edit; end
+  def edit
+    authorize! :edit, @book
+  end
 
   def update
     Book.edit_with_genres(book_params, params[:id])
@@ -39,6 +43,6 @@ class BooksController < ApplicationController
   end
 
   def find_book
-    @book = Book.by_id(params[:id])
+    @book = Book.find(params[:id])
   end
 end
