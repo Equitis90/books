@@ -17,6 +17,7 @@ feature 'User actions', type: :feature do
   context 'Signed up user actions' do
     let(:book) { FactoryBot.build(:book) }
     let(:user) { FactoryBot.create(:user) }
+    let(:option) { first('#book_genres option').text }
 
     scenario 'User logging in and creates a book review' do
       visit '/users/sign_in'
@@ -26,15 +27,13 @@ feature 'User actions', type: :feature do
 
       click_button 'Log in'
 
-      expect(page).to have_text('Signed in successfully.')
-
       visit '/books/new'
 
       fill_in 'Title', with: book.title
       fill_in 'Author', with: book.author
       attach_file('Cover', File.absolute_path("#{Rails.root}/spec/image.png"))
       fill_in 'Description', with: book.description
-      option = first('#book_genres option').text
+
       select option, from: 'book[genres][]'
       click_button 'Create'
 

@@ -55,6 +55,7 @@ group :test do
   gem 'rails-controller-testing'
   # Using capybara for feature tests
   gem 'capybara'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

@@ -1,6 +1,7 @@
 # Books controller
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  before_action :find_book, only: %i[show edit]
 
   def index
     @books = Book.where('created_at > ? and draft = false', Time.now - 7.days)
@@ -16,18 +17,14 @@ class BooksController < ApplicationController
     redirect_to root_path, flash: { notice: 'New book review created!' }
   end
 
-  def show
-    @book = Book.where(id: params[:id]).first
-  end
+  def show; end
 
   def drafts
     @books = Book.where('user_id = ? and draft = true', current_user.id)
                  .order(:updated_at)
   end
 
-  def edit
-    @book = Book.where(id: params[:id]).first
-  end
+  def edit; end
 
   def update
     Book.edit_with_genres(book_params, params[:id])
@@ -39,5 +36,9 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :author, :user_id, :cover,
                                  :description, :draft, genres: [])
+  end
+
+  def find_book
+    @book = Book.by_id(params[:id])
   end
 end

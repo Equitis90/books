@@ -19,3 +19,5 @@
 /.idea
 #Ignore paperclip loaded images
 /public/system/*
+# Ignore database.yml
+/config/database.yml

@@ -10,7 +10,7 @@
   <tbody>
   <% books.each do |book|%>
       <tr>
-        <td><%= link_to book.title, action_name == 'index' ? book_path(id: book.id) : edit_book_path(id: book.id) %></td>
+        <td><%= link_to book.title, action_name == 'index' ? book_path(book) : edit_book_path(book) %></td>
         <td><%= book.author %></td>
         <td><%= book.user.email %></td>
         <td><%= book.created_at.strftime('%d/%m/%Y') %></td>

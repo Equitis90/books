@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'books/drafts'
-  resources :books, except: [:destroy]
+  resources :books, except: [:destroy] do
+    get 'drafts', on: :collection
+  end
   devise_for :users
 
   root to: 'books#index'

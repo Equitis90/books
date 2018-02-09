@@ -9,38 +9,17 @@ describe Book, type: :model do
     expect(book).to be_valid
   end
 
-  it 'is not valid without genres' do
-    book.genres = []
-    expect(book).to_not be_valid
-  end
+  it { should validate_presence_of :genres }
 
-  it 'is not valid without title' do
-    book.title = nil
-    expect(book).to_not be_valid
-  end
+  it { should validate_presence_of :title }
 
-  it 'is not valid without draft' do
-    book.title = nil
-    expect(book).to_not be_valid
-  end
+  it { should validate_presence_of :cover }
 
-  it 'is not valid without cover' do
-    book.cover = nil
-    expect(book).to_not be_valid
-  end
+  it { should validate_presence_of :user }
 
-  it 'is not valid without user' do
-    book.user = nil
-    expect(book).to_not be_valid
-  end
+  it { should validate_presence_of :description }
 
-  it 'is not valid without description' do
-    book.description = nil
-    expect(book).to_not be_valid
-  end
+  it { should validate_presence_of :author }
 
-  it 'is not valid without author' do
-    book.author = nil
-    expect(book).to_not be_valid
-  end
+  it { should have_many :book_genres }
 end
